@@ -1,0 +1,36 @@
+<ion-content>
+  <ion-refresher slot="fixed" pull-factor="0.5" pull-min="100" pull-max="200">
+    <ion-refresher-content>
+
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-card style="border-radius: 0px; padding: 0%; " *ngFor="let goal of goals">
+    <ion-card-content padding>
+      <ion-slides [options]="sliderOptions">
+        <ion-slide style="margin-top: 10px;" *ngFor="let image of goal.images">
+          <!-- <img src="{{image}}" />  -->
+          <img src="{{image}}" />
+        </ion-slide>
+      </ion-slides>
+
+      <ion-row style="margin-block-start: 15px;">
+        <ion-col>
+          <div>
+            <ion-label>{{ goal.title }}</ion-label>
+            <p (click)="openModalPreview(goal)">23 days to go</p>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div style="display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+          height: 100%;  margin-top: 10px;">
+            <p style="margin-right: 10px; margin-bottom: 0px !important">20%</p>
+            <ion-progress-bar (click)="openModalUpdate()"></ion-progress-bar>
+          </div>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

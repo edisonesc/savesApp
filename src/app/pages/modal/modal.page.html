@@ -1,0 +1,42 @@
+<ion-toolbar>
+  <ion-label slot="end" (click)="closeModal()" style="margin-right: 5px!important;">Close</ion-label>
+</ion-toolbar>
+<ion-content class="modal_content">
+  <ion-slides style="margin-top: 10px;" [options]="sliderOptions">
+    <ion-slide *ngFor="let img of goal.images">
+      <img src="{{img}}" />
+    </ion-slide>
+  </ion-slides>
+  <div class="circleBase type1"
+    style=" z-index: 10; position: absolute; top: -42; left: 50%;transform: translate(-50%, -50%); border-radius: 10; background-color: white">
+    <round-progress [current]="20" [radius]="45" [color]="'#444444'" [stroke]="5" [max]="100"></round-progress>
+    <p style="position: relative; top: -69px; left: 31px; transform: translate(1%, -1%);  ">20%</p>
+  </div>
+  <div style="text-align: center; margin-block-start: 60px;">
+    <ion-label>{{ goal.title }}</ion-label><br>
+    <ion-label style="font-size: 10px;">5 / 79, 990</ion-label>
+  </div>
+  <ion-segment mode="md" [(ngModel)]="segment" padding>
+    <ion-segment-button value="description">
+      Description
+    </ion-segment-button>
+    <ion-segment-button value="links">
+      Links
+    </ion-segment-button>
+  </ion-segment>
+  <span [ngSwitch]="segment">
+    <div *ngSwitchCase="'description'" padding>
+
+      <ion-label padding>{{ goal.description}}</ion-label>
+    </div>
+    <div *ngSwitchCase="'links'">
+      <ion-list padding *ngFor="let link of goal.links">
+        <ion-label style="color: teal">{{ link }}</ion-label>
+      </ion-list>
+    </div>
+
+  </span>
+
+
+
+</ion-content>

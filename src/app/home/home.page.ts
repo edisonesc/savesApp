@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { AddGoalModalPage } from '../pages/add-goal-modal/add-goal-modal.page';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,11 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
-
+  constructor(private modalCtrl: ModalController) { }
+  async addGoalModal() {
+    const modal = await this.modalCtrl.create({
+      component: AddGoalModalPage
+    });
+    modal.present();
+  }
 }

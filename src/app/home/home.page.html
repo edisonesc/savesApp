@@ -1,14 +1,18 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+<ion-tabs>
+  <ion-toolbar slot="top" style="background-color:  #ffffff;">
+    <ion-icon name="add" style="font-size: 30px; color: #ffffff; position: fixed; right: 10px; top: 15px;"
+      (click)="addGoalModal()"></ion-icon>
+    <ion-label style="font-size: 25px; font-weight: 600; margin-left: 12px;">Save</ion-label>
   </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
-</ion-content>
+  <ion-tab-bar slot="top">
+    <ion-tab-button tab="goal-tabs">
+      <ion-label>GOAL</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="record-tabs">
+      <ion-label>RECORD</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="chart-tabs">
+      <ion-label>CHART</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
